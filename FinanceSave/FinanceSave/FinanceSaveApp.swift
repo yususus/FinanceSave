@@ -10,9 +10,9 @@ import SwiftUI
 @main
 struct FinanceSaveApp: App {
     var body: some Scene {
-                WindowGroup {
-                    let dataManager = DataManager()
-                    HomeView(dataManager: dataManager)
-                }
+            WindowGroup {
+                let dataManager = DataManager()
+                HomeView(dataManager: dataManager)
             }
+        }
 }
