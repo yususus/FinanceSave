@@ -7,12 +7,26 @@
 
 import SwiftUI
 
-struct TargetView: View {
+struct Targets: View {
+    @StateObject private var dataManager = DataManager()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Hedef Belirleyin!")
+                .font(.title3)
+                .frame(width: Const.width * 0.5, height: Const.height * 0.05)
+            TextField("🙂", text: $dataManager.userTarget).multilineTextAlignment(.center)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.decimalPad)
+                .frame(width: Const.width * 0.6)
+            Spacer()
+            HStack{
+                Text("dasda")
+            }
+            Spacer()
+        }.frame(width: Const.width * 0.9)
     }
 }
 
 #Preview {
-    TargetView()
+    Targets()
 }
