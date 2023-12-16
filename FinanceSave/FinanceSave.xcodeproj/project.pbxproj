@@ -59,14 +59,14 @@
 		882A99582B2DB43A005DFA2A /* FinanceSave */ = {
 			isa = PBXGroup;
 			children = (
+				882A996F2B2DB51C005DFA2A /* Const.swift */,
 				882A99592B2DB43A005DFA2A /* FinanceSaveApp.swift */,
 				882A99672B2DB45D005DFA2A /* HomeView.swift */,
 				882A99692B2DB4D9005DFA2A /* PlusView.swift */,
 				882A996B2B2DB4E8005DFA2A /* DataManager.swift */,
+				882A996D2B2DB4FC005DFA2A /* TargetView.swift */,
 				882A995D2B2DB43B005DFA2A /* Assets.xcassets */,
 				882A995F2B2DB43B005DFA2A /* Preview Content */,
-				882A996D2B2DB4FC005DFA2A /* TargetView.swift */,
-				882A996F2B2DB51C005DFA2A /* Const.swift */,
 			);
 			path = FinanceSave;
 			sourceTree = "<group>";
