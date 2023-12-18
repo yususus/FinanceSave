@@ -11,7 +11,7 @@ struct PlusView: View {
     @StateObject private var dataManager = DataManager()
 
     func newFocus() {
-        if dataManager.itemtotal >= dataManager.hedef {
+        if dataManager.itemtotal >= Double(dataManager.userTarget)! {
             dataManager.itemtotal = 0
         }
     }
@@ -39,9 +39,9 @@ struct PlusView: View {
                     if let userValue = Double(dataManager.userInput) {
                         dataManager.itemtotal += userValue
                         dataManager.addToToplam(deger: userValue)
-                        dataManager.itemtargetProgress = dataManager.itemtotal / dataManager.hedef
+                        dataManager.itemtargetProgress = dataManager.itemtotal / Double(dataManager.userTarget)!
 
-                        if dataManager.itemtotal >= dataManager.hedef && dataManager.itemtargetProgress >= 1 {
+                        if dataManager.itemtotal >= Double(dataManager.userTarget)! && dataManager.itemtargetProgress >= 1 {
                             dataManager.itemtotal = 0
                         }
 

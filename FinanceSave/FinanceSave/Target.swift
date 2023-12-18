@@ -24,12 +24,14 @@ struct Targets: View {
             Button(action: {
                 // Use dataManager.purpose directly
                 let userPurpose = dataManager.purpose
+                let userTarget = dataManager.userTarget
                 
                 // Check if the userPurpose is not empty before saving
-                if !userPurpose.isEmpty {
+                if !userPurpose.isEmpty{
                     dataManager.saveData()
                     // Optionally clear the purpose if needed
                     dataManager.purpose = ""
+                    dataManager.userTarget = ""
                 }                }) {
                     Text("Save")
                         .padding()

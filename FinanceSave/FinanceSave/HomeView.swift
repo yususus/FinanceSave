@@ -17,7 +17,7 @@ struct HomeView: View {
             VStack {
                 // total saving
                 Spacer()
-                Text("\(dataManager.hedef, specifier: "%.1f") ₺").font(.largeTitle)
+                Text("\(dataManager.userTarget) ₺").font(.largeTitle)
                     .frame(width: UIScreen.main.bounds.width)
                 Text("\(dataManager.purpose)").font(.title2)
                     .frame(width: UIScreen.main.bounds.width, height:30, alignment: .center)
