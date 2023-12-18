@@ -14,19 +14,39 @@ struct Targets: View {
             Text("Hedef Belirleyin!")
                 .font(.title3)
                 .frame(width: Const.width * 0.5, height: Const.height * 0.05)
-            TextField("🙂", text: $dataManager.userTarget).multilineTextAlignment(.center)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.decimalPad)
-                .frame(width: Const.width * 0.6)
             Spacer()
-            HStack{
-                Text("dasda")
-            }
+            textfieldss(title: "Ne kadarlık bir birikim?", text: $dataManager.userTarget)
+                .keyboardType(.numberPad)
+            
+            textfieldss(title: "Ne için biriktireceksiniz", text: $dataManager.purpose)
+                .keyboardType(.default)
             Spacer()
+            Button(action: {
+                // Use dataManager.purpose directly
+                let userPurpose = dataManager.purpose
+                
+                // Check if the userPurpose is not empty before saving
+                if !userPurpose.isEmpty {
+                    dataManager.saveData()
+                    // Optionally clear the purpose if needed
+                    dataManager.purpose = ""
+                }                }) {
+                    Text("Save")
+                        .padding()
+                        .font(.title3)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(20)
+                }
         }.frame(width: Const.width * 0.9)
     }
 }
 
 #Preview {
     Targets()
+}
+
+@ViewBuilder
+func textfieldss(title: String, text: Binding<String>) -> some View{
+    TextField(title, text: text).multilineTextAlignment(.center).padding().frame(width: 250).background(Color.green.opacity(0.3)).cornerRadius(10)
 }

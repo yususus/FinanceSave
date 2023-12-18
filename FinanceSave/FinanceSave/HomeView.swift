@@ -17,9 +17,9 @@ struct HomeView: View {
             VStack {
                 // total saving
                 Spacer()
-                Text("125,000.00$").font(.largeTitle)
+                Text("\(dataManager.hedef, specifier: "%.1f") ₺").font(.largeTitle)
                     .frame(width: UIScreen.main.bounds.width)
-                Text("Biriktilen Tutar").font(.title2)
+                Text("\(dataManager.purpose)").font(.title2)
                     .frame(width: UIScreen.main.bounds.width, height:30, alignment: .center)
                     .foregroundColor(.gray)
                     .padding(.horizontal)
@@ -42,7 +42,7 @@ struct HomeView: View {
                         Spacer()
                         Text("\(dataManager.totalMoney, specifier: "%.2f")")
                     }.padding(.horizontal).padding()
-                }.frame(maxWidth: .infinity).background(Color.mint.opacity(0.3))
+                }.frame(maxWidth: .infinity).background(Color.indigo.opacity(0.3))
                     .cornerRadius(10)
                 
                 //dates

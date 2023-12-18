@@ -17,19 +17,22 @@ struct PlusView: View {
     }
 
     var body: some View {
-        NavigationView {
             VStack {
-                Text("Hedef: 5000")
-                    .font(.title)
+                Spacer()
+                Text("Hedefe Kalan: \(dataManager.remaining, specifier: "%.1f")").padding()
+                    .font(.title).frame(width: Const.width * 0.56, height: Const.height * 0.15).background(Color.orange.opacity(0.5)).shadow(color: .orange, radius: 40).cornerRadius(30)
+                Spacer()
+                
                 CircleProgress(progress: dataManager.itemtargetProgress, total: dataManager.itemtotal)
-                    .frame(width: Const.width * 0.7, height: Const.height * 0.35)
+                    
+                Spacer()
+                Spacer()
                 Spacer()
 
                 // number input
                 TextField("Birikim Ekleyin ", text: $dataManager.userInput)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .keyboardType(.decimalPad)
-                    .padding().frame(width: 250)
+                    .padding().frame(width: 250).background(Color.green.opacity(0.3)).cornerRadius(10)
 
                 // save button
                 Button(action: {
@@ -45,58 +48,19 @@ struct PlusView: View {
                         dataManager.userInput = ""
                         dataManager.saveData()
                     }
-                    print("Kullanıcı girdisi: *******************")
-                    print("tebrikler tamamlandı")
-                    print("ilerleme yüzdesi: \(dataManager.itemtargetProgress)")
-                    print("toplam deger \(dataManager.itemtotal)")
                 }) {
                     Text("Save")
                         .padding()
                         .font(.title3)
-                        .background(Color.mint)
+                        .background(Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(20)
                 }
             }
-            .navigationTitle("Biriktilen Tutar")
-            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 dataManager.loadData()
             }
-        }
-    }
-}
-
-struct CircleProgress: View {
-    let progress: Double
-    let total: Double
-
-    var body: some View {
-        ZStack {
-            Text("TOPLAM BİRİKİM: \(total, specifier: "%.2f")")
-                .frame(width: 150, alignment: .center)
-                .padding()
-                .overlay(
-                    Circle()
-                        .stroke(
-                            Color.red.opacity(0.3), lineWidth: 20
-                        )
-                        .frame(width: Const.width * 0.7, height: Const.height * 0.35)
-                )
-            // 2
-            Circle()
-                .trim(from: 0, to: progress)
-                .stroke(
-                    Color.mint,
-                    style: StrokeStyle(
-                        lineWidth: 20,
-                        lineCap: .round,
-                        lineJoin: .miter
-                    )
-                )
-                .rotationEffect(.degrees(-90))
-                .animation(.spring, value: progress)
-        }
+        
     }
 }
 

@@ -10,11 +10,13 @@ import Foundation
 class DataManager: ObservableObject {
     @Published var itemtotal: Double = 0.0
     @Published var itemtargetProgress: Double = 0.0
-    @Published var hedef: Double = 5000.0
+    @Published var hedef: Double = 40000.0
     @Published var userInput: String = ""
     @Published var itemHedef: Double = 0.0
     @Published var totalMoney: Double = 0.0
     @Published var userTarget: String = ""
+    @Published var remaining: Double = 0.0
+    @Published var purpose : String = ""
     var userInputs : [String] = []
     
     
@@ -22,12 +24,13 @@ class DataManager: ObservableObject {
     func addToToplam(deger: Double) {
         totalMoney += Double(userInput)!
         userInputs.append(userInput)
+        remaining = hedef - itemtotal
         itemtargetProgress = itemtotal / hedef
     }
     
     // saveData fonksiyonunu güncelleyin
     func saveData() {
-        let savedData = SavedData(totalMoney: totalMoney, itemtotal: itemtotal, date: Date(), userInputs: userInputs)
+        let savedData = SavedData(totalMoney: totalMoney, itemtotal: itemtotal, date: Date(), userInputs: userInputs, remaining: remaining)
         if let encodedData = try? JSONEncoder().encode(savedData) {
             UserDefaults.standard.set(encodedData, forKey: "savedData")
         }
@@ -41,6 +44,7 @@ class DataManager: ObservableObject {
                 itemtotal = decodedData.itemtotal
                 userInput = "" // yeni girdi için sıfırlayın
                 userInputs = decodedData.userInputs
+                remaining = hedef - itemtotal
                 itemtargetProgress = itemtotal / hedef
             }
         }
@@ -52,5 +56,6 @@ class DataManager: ObservableObject {
         var itemtotal: Double
         var date: Date
         var userInputs: [String]
+        var remaining: Double
     }
 }

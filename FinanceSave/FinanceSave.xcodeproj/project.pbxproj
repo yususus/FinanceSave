@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88A5C4732B30B9A0007CE4C6 /* CircleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5C4722B30B9A0007CE4C6 /* CircleProgress.swift */; };
 		88BDC7512B2DAEA00063BD46 /* FinanceSaveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDC7502B2DAEA00063BD46 /* FinanceSaveApp.swift */; };
 		88BDC7552B2DAEA10063BD46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BDC7542B2DAEA10063BD46 /* Assets.xcassets */; };
 		88BDC7582B2DAEA10063BD46 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88BDC7572B2DAEA10063BD46 /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88A5C4722B30B9A0007CE4C6 /* CircleProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgress.swift; sourceTree = "<group>"; };
 		88BDC74D2B2DAEA00063BD46 /* FinanceSave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceSave.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BDC7502B2DAEA00063BD46 /* FinanceSaveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceSaveApp.swift; sourceTree = "<group>"; };
 		88BDC7542B2DAEA10063BD46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				88BDC7602B2DAEFB0063BD46 /* HomeView.swift */,
 				88BDC7622B2DAF2B0063BD46 /* PlusView.swift */,
 				88BDC7642B2DAF4F0063BD46 /* Target.swift */,
+				88A5C4722B30B9A0007CE4C6 /* CircleProgress.swift */,
 				88BDC7662B2DAF890063BD46 /* Const.swift */,
 				88BDC7542B2DAEA10063BD46 /* Assets.xcassets */,
 				88BDC7562B2DAEA10063BD46 /* Preview Content */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A5C4732B30B9A0007CE4C6 /* CircleProgress.swift in Sources */,
 				88BDC7632B2DAF2B0063BD46 /* PlusView.swift in Sources */,
 				88BDC7612B2DAEFB0063BD46 /* HomeView.swift in Sources */,
 				88BDC75F2B2DAEB70063BD46 /* DataManager.swift in Sources */,
