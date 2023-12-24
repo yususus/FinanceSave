@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlusView: View {
-    @StateObject private var dataManager = DataManager()
+    @StateObject var dataManager = DataManager()
 
     func newFocus() {
         if dataManager.itemtotal >= Double(dataManager.userTarget)! {
@@ -24,16 +24,13 @@ struct PlusView: View {
                 Spacer()
                 
                 CircleProgress(progress: dataManager.itemtargetProgress, total: dataManager.itemtotal)
-                    
                 Spacer()
                 Spacer()
                 Spacer()
-
                 // number input
                 TextField("Birikim Ekleyin ", text: $dataManager.userInput)
                     .keyboardType(.decimalPad)
                     .padding().frame(width: 250).background(Color.green.opacity(0.3)).cornerRadius(10)
-
                 // save button
                 Button(action: {
                     if let userValue = Double(dataManager.userInput) {

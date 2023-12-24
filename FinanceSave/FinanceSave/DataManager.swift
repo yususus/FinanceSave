@@ -29,7 +29,7 @@ class DataManager: ObservableObject {
     
     // saveData fonksiyonunu güncelleyin
     func saveData() {
-        let savedData = SavedData(totalMoney: totalMoney, itemtotal: itemtotal, date: Date(), userInputs: userInputs, remaining: remaining,userTarget: userTarget, purpose: purpose)
+        let savedData = SavedData(totalMoney: totalMoney, itemtotal: itemtotal, date: Date(), userInputs: userInputs, remaining: remaining,userTarget: userTarget, purpose: purpose, itemtargetProgress: itemtargetProgress)
         if let encodedData = try? JSONEncoder().encode(savedData) {
             UserDefaults.standard.set(encodedData, forKey: "savedData")
         }
@@ -45,8 +45,8 @@ class DataManager: ObservableObject {
                 userInputs = decodedData.userInputs
                 purpose = decodedData.purpose
                 userTarget = decodedData.userTarget
-                remaining = Double(userTarget)! - itemtotal
-                itemtargetProgress = itemtotal / Double(userTarget)!
+                remaining = decodedData.remaining
+                itemtargetProgress = decodedData.itemtargetProgress
             }
         }
     }
@@ -60,5 +60,6 @@ class DataManager: ObservableObject {
         var remaining: Double
         var userTarget: String
         var purpose : String
+        var itemtargetProgress: Double
     }
 }
