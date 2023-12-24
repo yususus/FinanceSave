@@ -9,9 +9,8 @@ import SwiftUI
 import UIKit
 
 struct HomeView: View {
-    @ObservedObject var dataManager: DataManager
+    @StateObject var dataManager: DataManager
     var body: some View {
-        
         NavigationStack{
             ToolBar()
             VStack {
@@ -59,41 +58,39 @@ struct HomeView: View {
                         }
                     }
                 }.padding().padding().background()
+            }.onAppear {
+                print("geldi görüntü")
+                dataManager.loadData()
             }
-            
-            
         }
-        .onAppear {
-            dataManager.loadData()
-        }
+        
+    }
+    @ViewBuilder
+    func ToolBar() -> some View {
+        HStack {
+            NavigationLink {
+                Targets()
+            } label: {
+                TextBtn(text: "Hedef")
+            }
+            Spacer()
+            
+            NavigationLink{
+                PlusView()
+            }label: {
+                TextBtn(text: "Ekle")
+            }
+        }.frame(width: Const.width * 0.9)
+    }
+    @ViewBuilder
+    func TextBtn(text: String) -> some View{
+        Text(text).frame(width:Const.width*0.2,height: Const.height*0.04)
+            .background(Color.mint).cornerRadius(10)
+            .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 15, y: 5)
+            .foregroundColor(.white)
     }
 }
 
 #Preview {
     HomeView(dataManager: DataManager())
-}
-
-@ViewBuilder
-func ToolBar() -> some View {
-    HStack {
-        NavigationLink {
-            Targets()
-        } label: {
-            TextBtn(text: "Hedef")
-        }
-        Spacer()
-        
-        NavigationLink{
-            PlusView()
-        }label: {
-            TextBtn(text: "Ekle")
-        }
-    }.frame(width: Const.width * 0.9)
-}
-@ViewBuilder
-func TextBtn(text: String) -> some View{
-    Text(text).frame(width:Const.width*0.2,height: Const.height*0.04)
-        .background(Color.mint).cornerRadius(10)
-        .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 15, y: 5)
-        .foregroundColor(.white)
 }

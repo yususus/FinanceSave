@@ -42,13 +42,14 @@ struct Targets: View {
                 }
         }.frame(width: Const.width * 0.9)
     }
+    @ViewBuilder
+    func textfieldss(title: String, text: Binding<String>) -> some View{
+        TextField(title, text: text).multilineTextAlignment(.center).padding().frame(width: 250).background(Color.green.opacity(0.3)).cornerRadius(10)
+    }
 }
 
 #Preview {
     Targets()
 }
 
-@ViewBuilder
-func textfieldss(title: String, text: Binding<String>) -> some View{
-    TextField(title, text: text).multilineTextAlignment(.center).padding().frame(width: 250).background(Color.green.opacity(0.3)).cornerRadius(10)
-}
+

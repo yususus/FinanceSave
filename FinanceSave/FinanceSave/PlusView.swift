@@ -57,7 +57,6 @@ struct PlusView: View {
             .onAppear {
                 dataManager.loadData()
             }
-        
     }
 }
 

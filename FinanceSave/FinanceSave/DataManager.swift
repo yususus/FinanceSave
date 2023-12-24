@@ -34,6 +34,17 @@ class DataManager: ObservableObject {
             UserDefaults.standard.set(encodedData, forKey: "savedData")
         }
     }
+    // SavedData yapısını güncelleyin
+    struct SavedData: Codable {
+        var totalMoney: Double
+        var itemtotal: Double
+        var date: Date
+        var userInputs: [String]
+        var remaining: Double
+        var userTarget: String
+        var purpose : String
+        var itemtargetProgress: Double
+    }
     
     // loadData fonksiyonunu güncelleyin
     func loadData() {
@@ -49,17 +60,5 @@ class DataManager: ObservableObject {
                 itemtargetProgress = decodedData.itemtargetProgress
             }
         }
-    }
-    
-    // SavedData yapısını güncelleyin
-    struct SavedData: Codable {
-        var totalMoney: Double
-        var itemtotal: Double
-        var date: Date
-        var userInputs: [String]
-        var remaining: Double
-        var userTarget: String
-        var purpose : String
-        var itemtargetProgress: Double
     }
 }
