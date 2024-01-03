@@ -1,8 +1,8 @@
 # FinanceSave
-Eng
-In this application, we can track our progress in achieving a goal we have set and see the amounts we have accumulated in day, month and year format.
-TR
-Bu uygulamada belirlediğimiz bir hedefe ulaşmak için ilerleme durumumuzu takip edebiliyor ve biriktirdiğimiz tutarları gün, ay, yıl formatında görebiliyoruz.
+Eng  
+In this application, we can track our progress in achieving a goal we have set and see the amounts we have accumulated in day, month and year format.  
+TR  
+Bu uygulamada belirlediğimiz bir hedefe ulaşmak için ilerleme durumumuzu takip edebiliyor ve biriktirdiğimiz tutarları gün, ay, yıl formatında görebiliyoruz.  
 
 
 
