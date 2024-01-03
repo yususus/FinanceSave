@@ -1,4 +1,11 @@
 # FinanceSave
+Eng
+In this application, we can track our progress in achieving a goal we have set and see the amounts we have accumulated in day, month and year format.
+TR
+Bu uygulamada belirlediğimiz bir hedefe ulaşmak için ilerleme durumumuzu takip edebiliyor ve biriktirdiğimiz tutarları gün, ay, yıl formatında görebiliyoruz.
+
+
+
 <img src="https://github.com/yususus/FinanceSave/assets/77053475/f484b615-c4d4-4e30-89f3-c1f1b58f7315" width="300" height="500">
 <img src="https://github.com/yususus/FinanceSave/assets/77053475/6ae16a7f-0a48-4a41-b832-e7482524b26d" width="300" height="500">
 <img src="https://github.com/yususus/FinanceSave/assets/77053475/da7dec1f-a746-4ea5-916c-f7473a7e5386" width="300" height="500">
