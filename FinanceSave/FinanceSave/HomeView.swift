@@ -10,6 +10,12 @@ import UIKit
 
 struct HomeView: View {
     @StateObject var dataManager: DataManager
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter
+    }()
+
     var body: some View {
         NavigationStack{
             ToolBar()
@@ -52,11 +58,12 @@ struct HomeView: View {
                         .overlay(Color.mint)
                     ForEach(dataManager.userInputs.reversed().prefix(5), id: \.self) { userInput in
                         HStack {
-                            Text("11.11.2023")
+                            Text(dateFormatter.string(from: userInput.date))
                             Spacer()
-                            Text(userInput)
+                            Text(userInput.value)
                         }
                     }
+
                 }.padding().padding().background()
             }.onAppear {
                 print("geldi görüntü")

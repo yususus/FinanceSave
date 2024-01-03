@@ -16,13 +16,17 @@ class DataManager: ObservableObject {
     @Published var userTarget: String = ""
     @Published var remaining: Double = 0.0
     @Published var purpose : String = ""
-    var userInputs : [String] = []
+    @Published var lastUpdate : Date?
+    @Published var userInputs : [UserInput] = []
     
-    
+    struct UserInput: Codable, Hashable {
+            let value: String
+            let date: Date
+        }
     // addToToplam fonksiyonunu güncelleyin
     func addToToplam(deger: Double) {
         totalMoney += Double(userInput)!
-        userInputs.append(userInput)
+        userInputs.append(UserInput(value: userInput, date: Date()))
         remaining = Double(userTarget)! - itemtotal
         itemtargetProgress = itemtotal / Double(userTarget)!
     }
@@ -39,11 +43,12 @@ class DataManager: ObservableObject {
         var totalMoney: Double
         var itemtotal: Double
         var date: Date
-        var userInputs: [String]
+        var userInputs: [UserInput]
         var remaining: Double
         var userTarget: String
         var purpose : String
         var itemtargetProgress: Double
+        
     }
     
     // loadData fonksiyonunu güncelleyin

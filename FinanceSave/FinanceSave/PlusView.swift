@@ -9,20 +9,17 @@ import SwiftUI
 
 struct PlusView: View {
     @StateObject var dataManager = DataManager()
-
     func newFocus() {
         if dataManager.itemtotal >= Double(dataManager.userTarget)! {
             dataManager.itemtotal = 0
         }
     }
-
     var body: some View {
             VStack {
                 Spacer()
                 Text("Hedefe Kalan: \(dataManager.remaining, specifier: "%.1f")").padding()
                     .font(.title).frame(width: Const.width * 0.56, height: Const.height * 0.15).background(Color.orange.opacity(0.5)).shadow(color: .orange, radius: 40).cornerRadius(30)
                 Spacer()
-                
                 CircleProgress(progress: dataManager.itemtargetProgress, total: dataManager.itemtotal)
                 Spacer()
                 Spacer()
@@ -41,7 +38,6 @@ struct PlusView: View {
                         if dataManager.itemtotal >= Double(dataManager.userTarget)! && dataManager.itemtargetProgress >= 1 {
                             dataManager.itemtotal = 0
                         }
-
                         dataManager.userInput = ""
                         dataManager.saveData()
                     }
@@ -59,7 +55,6 @@ struct PlusView: View {
             }
     }
 }
-
 #Preview {
     PlusView()
 }
