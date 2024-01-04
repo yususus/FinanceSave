@@ -11,12 +11,11 @@ class DataManager: ObservableObject {
     @Published var itemtotal: Double = 0.0
     @Published var itemtargetProgress: Double = 0.0
     @Published var userInput: String = ""
-    @Published var itemHedef: Double = 0.0
     @Published var totalMoney: Double = 0.0
     @Published var userTarget: String = ""
     @Published var remaining: Double = 0.0
     @Published var purpose : String = ""
-    @Published var lastUpdate : Date?
+    @Published var targetCount: Int = 0
     @Published var userInputs : [UserInput] = []
     
     struct UserInput: Codable, Hashable {
@@ -25,12 +24,12 @@ class DataManager: ObservableObject {
         }
     // addToToplam fonksiyonunu güncelleyin
     func addToToplam(deger: Double) {
-        totalMoney += Double(userInput)!
-        userInputs.append(UserInput(value: userInput, date: Date()))
-        remaining = Double(userTarget)! - itemtotal
-        itemtargetProgress = itemtotal / Double(userTarget)!
+      totalMoney += deger
+      userInputs.append(UserInput(value: String(deger), date: Date()))
+      remaining = Double(userTarget)! - itemtotal
+      itemtargetProgress = itemtotal / Double(userTarget)!
+      saveData()
     }
-    
     // saveData fonksiyonunu güncelleyin
     func saveData() {
         let savedData = SavedData(totalMoney: totalMoney, itemtotal: itemtotal, date: Date(), userInputs: userInputs, remaining: remaining,userTarget: userTarget, purpose: purpose, itemtargetProgress: itemtargetProgress)
@@ -50,20 +49,18 @@ class DataManager: ObservableObject {
         var itemtargetProgress: Double
         
     }
-    
     // loadData fonksiyonunu güncelleyin
     func loadData() {
-        if let savedData = UserDefaults.standard.data(forKey: "savedData") {
-            if let decodedData = try? JSONDecoder().decode(SavedData.self, from: savedData) {
-                totalMoney = decodedData.totalMoney
-                itemtotal = decodedData.itemtotal
-                userInput = "" // yeni girdi için sıfırlayın
-                userInputs = decodedData.userInputs
-                purpose = decodedData.purpose
-                userTarget = decodedData.userTarget
-                remaining = decodedData.remaining
-                itemtargetProgress = decodedData.itemtargetProgress
+            if let savedData = UserDefaults.standard.data(forKey: "savedData") {
+                if let decodedData = try? JSONDecoder().decode(SavedData.self, from: savedData) {
+                    totalMoney = decodedData.totalMoney
+                    userInputs = decodedData.userInputs
+                    purpose = decodedData.purpose
+                    userTarget = decodedData.userTarget
+                    itemtotal = decodedData.itemtotal
+                    remaining = Double(userTarget)! - itemtotal
+                    itemtargetProgress = itemtotal / Double(userTarget)!
+                }
             }
         }
     }
-}

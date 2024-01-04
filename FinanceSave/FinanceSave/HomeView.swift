@@ -15,7 +15,6 @@ struct HomeView: View {
         formatter.dateFormat = "dd.MM.yyyy"
         return formatter
     }()
-
     var body: some View {
         NavigationStack{
             ToolBar()
@@ -29,7 +28,6 @@ struct HomeView: View {
                     .foregroundColor(.gray)
                     .padding(.horizontal)
                 Spacer()
-                
                 //achievement
                 VStack{
                     HStack {
@@ -43,7 +41,7 @@ struct HomeView: View {
                         Text("3")
                     }.padding(.horizontal).padding()
                     HStack{
-                        Text("Toplam biriken")
+                        Text("Biriktilen Tutar")
                         Spacer()
                         Text("\(dataManager.totalMoney, specifier: "%.2f")")
                     }.padding(.horizontal).padding()
@@ -67,6 +65,8 @@ struct HomeView: View {
                 }.padding().padding().background()
             }.onAppear {
                 print("geldi görüntü")
+                print("totalMoney \(dataManager.totalMoney)")
+                print("deneme")
                 dataManager.loadData()
             }
         }

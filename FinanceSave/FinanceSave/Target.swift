@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Targets: View {
-    @StateObject private var dataManager = DataManager()
+    @StateObject var dataManager = DataManager()
     var body: some View {
         VStack {
             Text("Hedef Belirleyin!")
@@ -23,8 +23,8 @@ struct Targets: View {
             Spacer()
             Button(action: {
                 // Use dataManager.purpose directly
-                let userPurpose = dataManager.purpose
-                let userTarget = dataManager.userTarget
+                var userPurpose = dataManager.purpose
+                var userTarget = dataManager.userTarget
                 
                 // Check if the userPurpose is not empty before saving
                 if !userPurpose.isEmpty{

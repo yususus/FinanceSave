@@ -9,11 +9,6 @@ import SwiftUI
 
 struct PlusView: View {
     @StateObject var dataManager = DataManager()
-    func newFocus() {
-        if dataManager.itemtotal >= Double(dataManager.userTarget)! {
-            dataManager.itemtotal = 0
-        }
-    }
     var body: some View {
             VStack {
                 Spacer()
